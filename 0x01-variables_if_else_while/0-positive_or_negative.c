@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 /**
  * main -if a random number is positive, negative or a zero.
  * Return: Always 0 (Success)
