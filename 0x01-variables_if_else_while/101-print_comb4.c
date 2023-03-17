@@ -39,12 +39,12 @@ int main(void)
 						putchar(',');
 						putchar(' ');
 					}
-				}	
-				a++;
+				}
+			a++;
 			}
-			b++;
+		b++;
 		}
-		c++;
+	c++;
 	}
 	putchar('\n');
 	return (0);
