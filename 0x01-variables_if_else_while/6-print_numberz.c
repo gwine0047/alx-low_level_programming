@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <time.h>
+#include <stdio.h>
 /**
 * main - prints all single digits using only putcha
 * Return: 0 always (Success)
