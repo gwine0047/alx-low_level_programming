@@ -33,13 +33,14 @@ int main(void)
 					putchar('0' + c);
 					putchar('0' + b);
 					putchar('0' + a);
-				}
-					if (a + b + c != 9 + 8 + 7)
+
+					if (a + b + c != 24)
 					{
 						putchar(',');
 						putchar(' ');
 					}
-					a++;
+				}	
+				a++;
 			}
 			b++;
 		}
