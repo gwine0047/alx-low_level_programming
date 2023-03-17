@@ -5,7 +5,7 @@
  */
 int main(void)
 {
-	char low_case = "a";
+	char low_case = 'a';
 
 	while (low_case <= 'z')
 	{
