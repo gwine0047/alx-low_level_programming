@@ -6,32 +6,29 @@
 int main(void)
 {
 	int i;
-	char j [] = "Fizz";
-	char k [] = "Buzz";
-	char l [] = "FizzBuzz";
 
 	for (i = 1; i <= 100; i++)
 	{
 
-		if (i % 3 == 0)
+		if (i % 3 == 0 && i % 5 != 0)
 		{
-			printf("%s", j);
+			printf("Fizz");
 		}
-		else if (i % 5 == 0)
+		else if (i % 5 == 0 && i % 3 != 0)
 		{
-			printf("%s", k);
+			printf("Buzz");
 		}
 		else if (i % 3 == 0 && i % 5 == 0)
 		{
-			printf("%s", l);
+			printf("FizzBuzz");
+		}
+		else if (i == 1)
+		{
+			printf("%d", i);
 		}
 		else
 		{
 			printf("%d", i);
-		}
-		if (i != 100)
-		{
-			printf(" ");
 		}
 	}
 	printf("\n");
