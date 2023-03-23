@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * print_line - Draws a straight line on the terminal
- * @n: The number of '_' character
+ * @c: The number of '_' character
  * Return: Void.
  */
 void print_line(int c)
