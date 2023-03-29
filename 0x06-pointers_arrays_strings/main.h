@@ -21,6 +21,6 @@ char *string_toupper(char *);
 
 char *cap_string(char *);
 
-
+nt _putchar(char c);
 
 #endif /*MAIN_H*/
