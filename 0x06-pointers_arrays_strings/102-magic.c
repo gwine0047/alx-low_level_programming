@@ -1,5 +1,8 @@
 #include <stdio.h>
-
+/**
+ * main - prints a new number for a[2].
+ * Return: 0 always successful.
+ */
 int main(void)
 {
 	int n;
