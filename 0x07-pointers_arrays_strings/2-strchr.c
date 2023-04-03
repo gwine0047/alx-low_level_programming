@@ -2,7 +2,7 @@
 
 /**
  * _strchr - This function locates a charcater in a string.
- * @s: Represents the string where the search is carried out.
+ * @str: Represents the string where the search is carried out.
  * @c: The chararcter to look out for in 's'.
  *
  * Return: a pointer to the first occurence of the character
