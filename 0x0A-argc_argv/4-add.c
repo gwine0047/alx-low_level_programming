@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 	if (argc == 1)
 	{
 		printf("0\n");
-		return (0);
 	}
 
 	for (array = 1; array < argc; array++)
