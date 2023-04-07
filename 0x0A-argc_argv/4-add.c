@@ -17,11 +17,12 @@ int main(int argc, char *argv[])
 	if (argc == 1)
 	{
 		printf("0\n");
+		return (0);
 	}
 
 	for (array = 1; array < argc; array++)
 	{
-		for (i = 0; argv[array][i]; i++)
+		for (i = 0; argv[array][i] != '\0'; i++)
 		{
 			if (!(isdigit(argv[array][i])))
 			{
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-		sum = sum + atoi(argv[i]);
+		sum += atoi(argv[array]);
 	}
 	printf("%d\n", sum);
 	return (0);
