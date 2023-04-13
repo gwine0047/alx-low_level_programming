@@ -35,13 +35,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return ("");
 
 	k = n;
-	if (k <= 0)
-		return (NULL);
-
 	if (k >= len_str(s2))
 		k = len_str(s2);
 
-	len = len_str(s1) + len_str(s2) + 1;
+	len = len_str(s1) + k + 1;
 
 	conca = malloc(sizeof(*conca) * len);
 	if (conca == NULL)
