@@ -8,10 +8,10 @@
  */
 int main(int argc, char *argv[])
 {
-	int a, b;
-	unsigned long   mul = 0;
+	int a, b, c, d;
+	unsigned long mul = 0;
 
-	if (argc < 3)
+	if (argc != 3)
 	{
 		printf("Error\n");
 		exit(98);
@@ -27,8 +27,16 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	mul = atol(argv[1]) * atol(argv[2]);
-				printf("%lu\n", mul);
+	c = atol(argv[1]);
+	if (c < 0)
+		c = -c;
+	d = atol(argv[2]);
+	if (d < 0)
+		d = -d;
+
+	mul = c * d;
+	printf("%lu\n", mul);
+
 	return (0);
 
 
