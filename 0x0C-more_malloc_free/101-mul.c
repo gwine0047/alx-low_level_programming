@@ -2,14 +2,14 @@
 
 /**
  * main - multiplies two positive integers.
- * @argv: arguement elements.
- * @argc: no of arguement.
+ * @argv: argument elements.
+ * @argc: no of argument.
  * Return: num1 * num2.
  */
 int main(int argc, char *argv[])
 {
-	int a, b, c, d;
-	unsigned long mul = 0;
+	int a, b, num1, num2;
+	unsigned long int mul = 0;
 
 	if (argc != 3)
 	{
@@ -27,14 +27,15 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	c = atol(argv[1]);
-	if (c < 0)
-		c = -c;
-	d = atol(argv[2]);
-	if (d < 0)
-		d = -d;
+	num1 = atol(argv[1]);
+	if (num1 < 0)
+		num1 = -num1;
 
-	mul = c * d;
+	num2 = atol(argv[2]);
+	if (num2 < 0)
+		num2 = -num2;
+
+	mul = num1 * num2;
 	printf("%lu\n", mul);
 
 	return (0);
