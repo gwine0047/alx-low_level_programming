@@ -35,7 +35,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return ("");
 
 	k = n;
-	if (k < 0)
+	if (k <= 0)
 		return (NULL);
 
 	if (k >= len_str(s2))
