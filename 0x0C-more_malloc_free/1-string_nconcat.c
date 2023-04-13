@@ -29,10 +29,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *conca;
 
 	if (s1 == NULL)
-		return ("");
+		s1 = "";
 
 	if (s2 == NULL)
-		return ("");
+		s2 = "";
 
 	k = n;
 	if (k >= len_str(s2))
