@@ -1,12 +1,11 @@
 #include <stdio.h>
-#define PRINT "2-main.c"
 
 /**
- * main - main block
+ * main - main block; prints the name of file.
  * Return: nothing.
  */
 int main(void)
 {
-	printf("%s\n", PRINT);
+	printf("%s\n", __FILE__);
 	return (0);
 }
