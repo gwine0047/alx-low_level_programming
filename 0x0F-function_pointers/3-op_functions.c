@@ -26,45 +26,45 @@ int op_sub(int a, int b)
 
 /**
  * op_mul - multiplies
- * @m:first integer
- * @n:second integer
+ * @a:first integer
+ * @b:second integer
  *  Return: multiple
  */
-int op_mul(int m, int n)
+int op_mul(int a, int b)
 {
-	return (m * n);
+	return (a * b);
 }
 
 /**
  * op_div - divides
- * @c:first integer
- * @d:second integer
+ * @a:first integer
+ * @b:second integer
  *  Return: division
  */
-int op_div(int c, int d)
+int op_div(int a, int b)
 {
-	if (d == 0)
+	if (b == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	return (c / d);
+	return (a / b);
 }
 
 /**
  * op_mod - gets remainder
- * @x: first integer
- * @y: second integer
+ * @a: first integer
+ * @b: second integer
  * Return: remainder
  */
-int op_mod(int x, int y)
+int op_mod(int a, int b)
 {
-	if (y == 0)
+	if (b == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	return (x % y);
+	return (a % b);
 }
