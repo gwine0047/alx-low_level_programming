@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	int b, mem = 0;
 	char *array;
 
-	if (argc !=2)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
