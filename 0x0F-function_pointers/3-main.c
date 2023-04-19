@@ -8,7 +8,7 @@
  * @argv: arguement vector
  * Return: 0 if successful
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((unused)) argc, char *argv[])
 {
 	int s1, s2, result;
 	char a;
