@@ -3,7 +3,7 @@
  * array_iterator - executes a function given as a parameter
  * on each element of an array.
  * @array: contains an address to an array of integers.
- * @size_t size: is the size of the array.
+ * @size: is the size of the array.
  * @action: is a function pointer.
  * Return: void.
  */
