@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int b, mem = 0;
+	int mem, b = 0;
 	char *array;
 
 	if (argc != 2)
@@ -32,6 +32,6 @@ int main(int argc, char *argv[])
 		break;
 		b++;
 	}
-	printf("%02hhx", array[b]);
+	printf("%02hhx\n", array[b]);
 	return (0);
 }

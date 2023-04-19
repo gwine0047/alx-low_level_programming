@@ -1,44 +1,32 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * main - main block
- * @argc: arguement count
- * @argv: arguement vector
- * Return: 0 if successful
+ * main - ...
+ * @argc: ...
+ * @argv: ...
+ *
+ * Return: ...
  */
-int main(int __attribute__((unused)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int s1, s2, result;
-	char a;
-	int (*f)(int, int);
+	int (*oprt)(int, int);
 
-	if (!(argc == 4))
+	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
 
-	s1 = atoi(argv[1]);
-	s2 = atoi(argv[3]);
+	oprt = get_op_func(argv[2]);
 
-	f = get_op_func(argv[2]);
-
-	if (!f)
+	if (!oprt)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	a = *argv[2];
 
-	if ((a == '/' || a == '%') && s2 == 0)
-	{
-		printf("Error");
-		exit(100);
-	}
-	result = f(s1, s2);
-
-	printf("%d\n", result);
+	printf("%d\n", oprt(atoi(argv[1]), atoi(argv[3])));
 	return (0);
 }
