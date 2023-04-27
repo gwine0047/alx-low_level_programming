@@ -2,9 +2,9 @@ section .data
     hello db 'Hello, Holberton', 10  ; String to be printed
 
 section .text
-    global _start
+    global main
 
-_start:
+main:
     ; Write the string to stdout
     mov rax, 1            ; System call number for write
     mov rdi, 1            ; File descriptor for stdout (1)
