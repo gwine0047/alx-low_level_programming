@@ -1,8 +1,8 @@
 #include "lists.h"
 /**
- * add_node_end - Adds a node to the beginning of a list
+ * add_node_end - Adds a node to the end of a list.
  *@head: points to the first node.
- * @str: is the data.
+ *@str: is the data.
  *
  * Return: a pointer to the new node.
  */
@@ -18,14 +18,14 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	tail = malloc(sizeof(list_t));
 	if (tail == NULL)
-		return (-1);
+		return (NULL);
 
 	tail->str = strdup(str);
 	tail->len = count;
 	tail->next = (NULL);
 	temp = (*head);
 
-	if (*head == NULL)
+	if (**head == NULL)
 	{
 		*head = tail;
 		return (tail);
