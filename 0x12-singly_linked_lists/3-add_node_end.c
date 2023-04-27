@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * add_note - Adds a node to the beginning of a list
+ * add_node_end - Adds a node to the beginning of a list
  *@head: points to the first node.
  * @str: is the data.
  *

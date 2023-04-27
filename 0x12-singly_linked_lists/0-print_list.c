@@ -1,11 +1,9 @@
 #include "lists.h"
 /**
  * print_list - prints all the element of list_t
- * @str: string - (malloc'ed string)
- * @len: length of the string
- * @next: points to the next node
+ * @h: is a list.
  *
- * Description: singly linked list node structure
+ * Return: the number of elements in list h.
 */
 size_t print_list(const list_t *h)
 {
