@@ -24,13 +24,9 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 			position++;
 		}
 	}
-	if (index != 0 && temp->next == NULL)
-	{
-		if (temp == NULL)
-		{
-			return (-1);
-		}
-	}
+	if ((index != 0 && temp->next == NULL) || temp == NULL)
+		return (-1);
+
 	next_node = temp->next;
 
 	if (index != 0)
