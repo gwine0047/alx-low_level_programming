@@ -20,7 +20,6 @@ size_t print_listint_safe(const listint_t *head)
 		num_nodes_visited++;
 
 		previous_node = head;
-		num_previous_nodes = 0;
 		while (num_previous_nodes < num_nodes_visited)
 		{
 			if (current_node == previous_node)
