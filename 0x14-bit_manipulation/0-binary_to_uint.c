@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * binary_to_unit - converts a binary to an integer.
+ * binary_to_uint - converts a binary to an integer.
  * @b: is a pointer to characters.
  *
  * Return: the converted number
@@ -24,7 +24,7 @@ unsigned int binary_to_uint(const char *b)
 			result = (result << 1) | 1;
 
 		else
-			return (0);			
+			return (0);
 	}
 	return (result);
 	printf("\n");
