@@ -8,14 +8,24 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int ref;
-	int bit;
-	ref = 1UL << (sizeof(int) * 8 - 1);
+	int result;
 
-	while (ref > 0)
+	ref = (n >> 0);
+
+	if (ref)
 	{
-		bit = (n & ref) ? 1 : 0;
-		printf("%d", bit);
-		ref >>= 1;
+		if (n >> 1)
+			print_binary(n >> 1);
+
+		result = (n & 1);
+		_putchar(result + '0');
 	}
-	
+
+	else
+	{
+		_putchar('0');
+	}
+		
 }
+
+
