@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * print_binary - prints the binary representation of a number.
  * @n: is the number to be converted.
@@ -8,7 +9,7 @@ void print_binary(unsigned long int n)
 {
 	unsigned long int ref;
 	int bit;
-	ref = 1UL << (sizeof9(unsigned long int) * 8 - 1);
+	ref = 1UL << (sizeof(int) * 8 - 1);
 
 	while (ref > 0)
 	{
