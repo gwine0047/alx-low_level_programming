@@ -11,7 +11,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int f_ptr, wr_count, let_count = 0;
 
-	if (filename == -1)
+	if (!filename)
 		return (-1);
 
 	f_ptr = open(filename, O_CREAT | O_WRONLY | O_TRUNC, "wr-------");
