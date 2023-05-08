@@ -1,37 +1,36 @@
 #include "main.h"
 /**
- * read_textfile - reads a text file and prints it.
+ * create_file - reads a text file and prints it.
  * @filename: is the name of the file to be read.
- * @letters: is the number of letters.
+ * @text_content: is the string to be input.
  *
- * Return: the number of characters written.
+ * Return: 1 on success and -1 on failure.
  */
 
-ssize_t read_textfile(const char *filename, size_t letters)
+int create_file(const char *filename, char *text_content)
 {
-	unsigned int rd_count, wr_count;
-	int f_ptr;
-	char *buff;
+	int f_ptr, wr_count, let_count = 0;
 
 	if (filename == NULL)
 		return (0);
 
-	f_ptr = open(filename, O_RDONLY);
-	if (f_ptr == 0)
-		return (0);
+	f_ptr = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+	if (f_ptr == -1)
+		return (-1);
 
-	buff = malloc(sizeof(char) * (letters));
-	if (buff == NULL)
-		return (0);
+	if (text_content == NULL)
+		text_content = "";
 
-	rd_count = read(f_ptr, buff, letters);
-	wr_count = write(STDOUT_FILENO, buff, rd_count);
-
+	while (text_content[let_count])
+	{
+		wr_count = write(f_ptr, text_content, let_count);
+		let_count++;
+	}
+	if (wr_count == -1)
+		return (-1);
 	close(f_ptr);
 
-	free(buff);
-
-	return (wr_count);
+	return (1);
 
 
 }
