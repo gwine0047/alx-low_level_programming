@@ -14,7 +14,7 @@ int create_file(const char *filename, char *text_content)
 	if (filename == NULL)
 		return (0);
 
-	f_ptr = open(filename, O_CREAT | O_WRONLY | O_TRUNC);
+	f_ptr = open(filename, O_CREAT | O_WRONLY | O_TRUNC, "wr-------");
 	if (f_ptr == -1)
 		return (-1);
 
@@ -29,9 +29,6 @@ int create_file(const char *filename, char *text_content)
 	if (wr_count == -1)
 		return (-1);
 	close(f_ptr);
-
-	if (chmod(filename, 0600) != 0)
-		return (-1);
 
 	return (1);
 
