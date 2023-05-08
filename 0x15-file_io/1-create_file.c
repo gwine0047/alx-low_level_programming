@@ -26,8 +26,10 @@ int create_file(const char *filename, char *text_content)
 		wr_count = write(f_ptr, text_content, let_count);
 		let_count++;
 	}
+
 	if (wr_count == -1)
 		return (-1);
+	}
 	close(f_ptr);
 
 	return (1);
