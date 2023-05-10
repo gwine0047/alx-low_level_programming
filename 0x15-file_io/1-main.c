@@ -1,22 +1,34 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
-
 /**
- * main - check the code
+ * append_text_to_file - appends text at the end of a file..
+ * @filename: is the name of the file to be read.
+ * @text_content: is the string to be appended
  *
- * Return: Always 0.
+ * Return: 1 on success and -1 on failure.
  */
-int main(int ac, char **av)
+int append_text_to_file(const char *filename, char *text_content)
 {
-    int res;
+	int f_ptr, wr_count, let_count = 0;
 
-    if (ac != 3)
-    {
-        dprintf(2, "Usage: %s filename text\n", av[0]);
-        exit(1);
-    }
-    res = create_file(av[1], av[2]);
-    printf("-> %i)\n", res);
-    return (0);
+	if (filename == NULL)
+		return (-1);
+
+	f_ptr = open(filename, O_WRONLY | O_APPEND);
+
+	if (text_content)
+	{
+
+		for (;text_content[let_count]; let_count++);
+
+		wr_count = write(f_ptr, text_content, let_count);
+
+		if (wr_count == -1 || f_ptr == -1)
+			return (-1);
+	}
+
+	close(f_ptr);
+
+	return (1);
+
+
 }
