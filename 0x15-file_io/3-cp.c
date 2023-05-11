@@ -1,4 +1,10 @@
 #include "main.h"
+/**
+ * open_read - opens a file for reading.
+ * @filename: is the name of file.
+ *
+ * Return: file descriptor.
+ */
 
 int open_read(char *filename)
 {
@@ -12,7 +18,12 @@ int open_read(char *filename)
 	}
 	return (rd_fd);
 }
-
+/**
+ * open_write - opens a file for writing.
+ * @filename: is the name of file.
+ *
+ * Return: file descriptor.
+ */
 
 
 int open_write(char *filename)
@@ -26,9 +37,14 @@ int open_write(char *filename)
 		exit(99);
 	}
 	return (wr_fd);
-} 
-
-
+}
+/**
+ * main - checks the code.
+ * @argc: commandline argument count.
+ * @argv: commandline arguments.
+ *
+ * Return: 0 when successful.
+ */
 
 int main(int argc, char *argv[])
 {
@@ -38,22 +54,19 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO,"%s\n", "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
-
 	file_from = open_read(argv[1]);
 	file_to = open_write(argv[2]);
-	
 	r_bytes = 1024;
 	while (r_bytes == 1024)
 	{
 		r_bytes = read(file_from, buffer, 1024);
 		if (r_bytes == -1)
 		{
-			dprintf(STDERR_FILENO,"Error: can't read from %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: can't read from %s\n", argv[1]);
 		}
-
 		w_bytes = write(file_to, buffer, r_bytes);
 		if (r_bytes != w_bytes)
 		{
@@ -74,5 +87,4 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 	return (0);
-
 }
