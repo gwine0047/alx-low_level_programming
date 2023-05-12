@@ -34,7 +34,7 @@ int open_write(char *filename)
 {
 	int wr_fd;
 
-	wr_fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	wr_fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (wr_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", filename);
@@ -42,6 +42,23 @@ int open_write(char *filename)
 	}
 	return (wr_fd);
 }
+/**
+ * close_err - handles the error from closing a file.
+ * @file_descriptor: points to the file.
+ */
+
+void close_err(int file_descriptor)
+{
+	int err;
+
+	err = close(file_descriptor);
+	if (err == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_descriptor);
+		exit(100);
+	}
+}
+
 /**
  * main - checks the code.
  * @argc: commandline argument count.
@@ -52,9 +69,9 @@ int open_write(char *filename)
 
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, close_err;
+	int file_from, file_to;
 	ssize_t r_bytes, w_bytes;
-	char buffer[1024];
+	char *buffer[1024];
 
 	if (argc != 3)
 	{
@@ -64,7 +81,7 @@ int main(int argc, char *argv[])
 	file_from = open_read(argv[1]);
 	file_to = open_write(argv[2]);
 	r_bytes = 1024;
-	while (r_bytes == 1024)
+	while (r_bytes > 0)
 	{
 		r_bytes = read(file_from, buffer, 1024);
 		if (r_bytes == -1)
@@ -79,17 +96,8 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 	}
-	close_err = close(file_from);
-	if (close_err == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_from);
-		exit(100);
-	}
-	close_err = close(file_to);
-	if (close_err == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_to);
-		exit(100);
-	}
+	close_err(file_from);
+	close_err(file_to);
+
 	return (0);
 }
