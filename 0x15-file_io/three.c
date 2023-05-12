@@ -10,10 +10,6 @@ int open_read(char *filename)
 {
 	int rd_fd;
 
-	if (!filename)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", filename);
-	}
 	rd_fd = open(filename, O_RDONLY);
 	if (rd_fd == -1)
 	{
@@ -38,7 +34,7 @@ int open_write(char *filename)
 	if (wr_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", filename);
-		;exit(99);
+		exit(99);
 	}
 	return (wr_fd);
 }
@@ -58,7 +54,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
 	file_from = open_read(argv[1]);
