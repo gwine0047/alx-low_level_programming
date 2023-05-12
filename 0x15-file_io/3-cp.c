@@ -70,11 +70,16 @@ int main(int argc, char *argv[])
 		if (r_bytes == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: can't read from %s\n", argv[1]);
+			close(file_from);
+			close(file_to);
+			exit(99);
 		}
 		w_bytes = write(file_to, buffer, r_bytes);
-		if (r_bytes != w_bytes)
+		if (w_bytes || r_bytes != w_bytes)
 		{
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
+			close(file_from);
+			close(file_to);
 			exit(99);
 		}
 	}
