@@ -80,8 +80,7 @@ int main(int argc, char *argv[])
 	}
 	file_from = open_read(argv[1]);
 	file_to = open_write(argv[2]);
-	r_bytes = 1024;
-	while (r_bytes > 0)
+	do
 	{
 		r_bytes = read(file_from, buffer, 1024);
 		if (r_bytes == -1)
@@ -95,7 +94,7 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
 			exit(99);
 		}
-	}
+	} while (r_bytes > 0);
 	close_err(file_from);
 	close_err(file_to);
 
