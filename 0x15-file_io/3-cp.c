@@ -80,8 +80,7 @@ int main(int argc, char *argv[])
 	}
 	file_from = open_read(argv[1]);
 	file_to = open_write(argv[2]);
-	do
-	{
+	do {
 		r_bytes = read(file_from, buffer, 1024);
 		if (r_bytes == -1)
 		{
