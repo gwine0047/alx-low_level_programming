@@ -38,7 +38,7 @@ int open_write(char *filename)
 	if (wr_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", filename);
-		;exit(99);
+		exit(99);
 	}
 	return (wr_fd);
 }
