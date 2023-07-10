@@ -24,6 +24,7 @@ void close_elf(int elf);
  *
  * Return: nothing.
  */
+
 void find_elf(unsigned char *e_ident)
 {
 	int i = 0;
@@ -89,7 +90,7 @@ void print_magic(unsigned char *e_ident)
 	int no = 0;
 
 	printf("	Magic:	");
-	
+
 	for (; no < EI_NIDENT; no++)
 	{
 		printf("%02x", e_ident[no]);
@@ -101,19 +102,20 @@ void print_magic(unsigned char *e_ident)
 	}
 }
 
-/**Print_data - Prints ELF header's data.
+/**
+ * Print_data - Prints ELF header's data.
  * @e_ident: a pointer to ELF data array.
  */
 
 void print_data(unsigned char *e_ident)
 {
 	printf("	Data:					");
-	
-	if (ELFDATA2LSB == e_ident[EI_DATA])
+
+	if (e_ident[EI_DATA] == ELFDATA2LSB)
 		printf("2's complement, little endian\n");
 	else if (ELFDATANONE == e_ident[EI_DATA])
 		printf("none\n");
-	else if (ELFDATA2MSB == e_ident[EI_DATA])
+	else if (e_ident[EI_DATA] == ELFDATA2MSB)
 		printf("2's complement, big endian\n");
 	else
 		printf("<unknown: %x>\n", e_ident[EI_CLASS]);
