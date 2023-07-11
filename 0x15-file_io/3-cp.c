@@ -11,13 +11,18 @@ int open_read(char *filename)
 	int rd_fd;
 
 	if (!filename)
-		return (0);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+		exit(98);
+	}
+
 	rd_fd = open(filename, O_RDONLY);
 	if (rd_fd < 0)
 	{
-		close (rd_fd);
-		return (0);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+		exit(98);
 	}
+
 	return (rd_fd);
 }
 /**
@@ -27,17 +32,16 @@ int open_read(char *filename)
  * Return: file descriptor.
  */
 
-
 int open_write(char *filename)
 {
 	int wr_fd;
-	
-	if (!filename)
-		return (0);
 
 	wr_fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (wr_fd == -1)
-		return (0);
+	if (wr_fd < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+		exit(99);
+	}
 	return (wr_fd);
 }
 /**
@@ -91,7 +95,7 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
 			exit(99);
 		}
-	} while (r_bytes > 0);
+	} while (r_bytes == 1024);
 	close_err(file_from);
 	close_err(file_to);
 
