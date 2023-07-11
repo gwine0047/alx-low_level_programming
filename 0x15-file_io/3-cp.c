@@ -11,14 +11,12 @@ int open_read(char *filename)
 	int rd_fd;
 
 	if (!filename)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
-	}
+		return (0);
 	rd_fd = open(filename, O_RDONLY);
 	if (rd_fd < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
-		exit(98);
+		close (rd_fd);
+		return (0);
 	}
 	return (rd_fd);
 }
@@ -33,13 +31,13 @@ int open_read(char *filename)
 int open_write(char *filename)
 {
 	int wr_fd;
+	
+	if (!filename)
+		return (0);
 
 	wr_fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (wr_fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't write to %s\n", filename);
-		exit(99);
-	}
+		return (0);
 	return (wr_fd);
 }
 /**
