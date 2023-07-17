@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 	file_to = open_write(argv[2]);
 	do {
 		r_bytes = read(file_from, buffer, 1024);
-		if (r_bytes < 0)
+		if (r_bytes == 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
