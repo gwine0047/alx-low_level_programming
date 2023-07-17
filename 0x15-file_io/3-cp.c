@@ -86,11 +86,11 @@ int main(int argc, char *argv[])
 		r_bytes = read(file_from, buffer, 1024);
 		if (r_bytes < 0)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
 		w_bytes = write(file_to, buffer, r_bytes);
-		if (w_bytes < 0 || w_bytes != r_bytes)
+		if (w_bytes == -1 || w_bytes != r_bytes)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
