@@ -19,7 +19,7 @@ int open_read(char *filename)
 	rd_fd = open(filename, O_RDONLY);
 	if (rd_fd < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", filename);
 		exit(98);
 	}
 
@@ -56,7 +56,7 @@ void close_err(int file_descriptor)
 	err = close(file_descriptor);
 	if (err < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_descriptor);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_descriptor);
 		exit(100);
 	}
 }
@@ -86,13 +86,13 @@ int main(int argc, char *argv[])
 		r_bytes = read(file_from, buffer, 1024);
 		if (r_bytes < 0)
 		{
-			dprintf(STDERR_FILENO, "Error: can't read from %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from %s\n", argv[1]);
 			exit(98);
 		}
 		w_bytes = write(file_to, buffer, r_bytes);
 		if (w_bytes < 0 || w_bytes != r_bytes)
 		{
-			dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	} while (r_bytes == 1024);
