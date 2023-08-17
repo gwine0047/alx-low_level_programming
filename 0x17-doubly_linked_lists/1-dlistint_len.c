@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
-*print_dlistint - returns the number of elements
+*dlistint_len - returns the number of elements
 * in a dlistint_t list.
 *@h: head of the list
 *Return: element count.
