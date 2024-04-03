@@ -3,7 +3,7 @@
 
 def flow_count(grid, a, b):
     """Returns the count of water cell"""
-    
+
     count = 0
 
     if a <= 0 or not grid[a - 1][b]:
